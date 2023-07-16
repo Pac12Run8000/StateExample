@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Create a @State property for the toggle
+    @State private var isToggleOn: Bool = false
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Toggle(isOn: $isToggleOn) {
+                Text("Toggle")
+            }
+            .padding()
+
+            if isToggleOn {
+                Text("The toggle is on")
+            } else {
+                Text("The toggle is off")
+            }
         }
-        .padding()
     }
 }
 
